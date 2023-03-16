@@ -3,6 +3,14 @@ package cmd
 import (
 	"crypto/tls"
 	"errors"
+	"flag"
+	"fmt"
+	"github.com/nbvghost/dandelion/config"
+	"github.com/nbvghost/dandelion/constrain/key"
+	"github.com/nbvghost/dandelion/library/environments"
+	"github.com/nbvghost/dandelion/server/etcd"
+	"github.com/nbvghost/dandelion/server/serviceobject"
+	clientv3 "go.etcd.io/etcd/client/v3"
 	"io"
 	"io/fs"
 	"log"
@@ -13,6 +21,7 @@ import (
 	"path/filepath"
 	"strings"
 	"syscall"
+	"time"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/afero"
@@ -45,6 +54,7 @@ func init() {
 	persistent := rootCmd.PersistentFlags()
 
 	persistent.StringVarP(&cfgFile, "config", "c", "", "config file path")
+	flag.StringVar(&cfgFile, "config", "config.json", "config file path")
 	persistent.StringP("database", "d", "./filebrowser.db", "database path")
 	flags.Bool("noauth", false, "use the noauth auther when using quick setup")
 	flags.String("username", "admin", "username for the first user when using quick config")
@@ -142,6 +152,24 @@ user created with the credentials from options "username" and "password".`,
 		server.Root = root
 
 		adr := server.Address + ":" + server.Port
+
+		serverConfig := config.MicroServerConfig{
+			MicroServer: key.MicroServer{Name: "filebrowser", ServerType: key.ServerTypeHttp},
+			IP:          environments.IP(),
+			Port:        environments.Port(),
+		}
+
+		etcdConfig := clientv3.Config{
+			Endpoints:   environments.EtcdEndpoints(),
+			DialTimeout: 30 * time.Second,
+		}
+		etcdService := etcd.NewServer(etcdConfig)
+		serverDesc, err := etcdService.Register(serviceobject.NewServerDesc(serverConfig.MicroServer, serverConfig.Port, serverConfig.IP))
+		if err != nil {
+			panic(err)
+		}
+
+		adr = fmt.Sprintf("%s:%d", serverDesc.IP, serverDesc.Port)
 
 		var listener net.Listener
 

@@ -14,6 +14,7 @@ require (
 	github.com/marusama/semaphore/v2 v2.5.0
 	github.com/mholt/archiver/v3 v3.5.1
 	github.com/mitchellh/go-homedir v1.1.0
+	github.com/nbvghost/dandelion v0.0.0-20230316173559-98c45a4b5b39
 	github.com/pelletier/go-toml/v2 v2.0.6
 	github.com/shirou/gopsutil/v3 v3.23.1
 	github.com/spf13/afero v1.9.3
@@ -23,6 +24,7 @@ require (
 	github.com/stretchr/testify v1.8.1
 	github.com/tomasen/realip v0.0.0-20180522021738-f0c99a92ddce
 	go.etcd.io/bbolt v1.3.7
+	go.etcd.io/etcd/client/v3 v3.5.6
 	golang.org/x/crypto v0.6.0
 	golang.org/x/image v0.5.0
 	golang.org/x/text v0.7.0
@@ -32,14 +34,21 @@ require (
 
 require (
 	github.com/andybalholm/brotli v1.0.1 // indirect
+	github.com/cespare/xxhash/v2 v2.1.2 // indirect
+	github.com/coreos/go-semver v0.3.0 // indirect
+	github.com/coreos/go-systemd/v22 v22.3.2 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dsnet/compress v0.0.2-0.20210315054119-f66993602bf5 // indirect
 	github.com/dsoprea/go-logging v0.0.0-20200517223158-a10564966e9d // indirect
 	github.com/dsoprea/go-utility/v2 v2.0.0-20200717064901-2fccff4aa15e // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-errors/errors v1.1.1 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
+	github.com/go-redis/redis/v8 v8.11.4 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/geo v0.0.0-20200319012246-673a6f80352d // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.2 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.1 // indirect
@@ -47,8 +56,13 @@ require (
 	github.com/klauspost/pgzip v1.2.5 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/nbvghost/captcha v0.0.0-20180625094027-5f52e2511d89 // indirect
+	github.com/nbvghost/glog v0.0.0-20220325163842-3accd57fda66 // indirect
+	github.com/nbvghost/gpa v0.0.0-20221021055612-4803aa7753df // indirect
+	github.com/nbvghost/tool v0.0.0-20220325180651-f5c6376d74d4 // indirect
 	github.com/nwaples/rardecode v1.1.0 // indirect
 	github.com/pierrec/lz4/v4 v4.1.2 // indirect
+	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/power-devops/perfstat v0.0.0-20210106213030-5aafc221ea8c // indirect
 	github.com/spf13/cast v1.5.0 // indirect
@@ -57,8 +71,16 @@ require (
 	github.com/ulikunitz/xz v0.5.9 // indirect
 	github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8 // indirect
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
+	go.etcd.io/etcd/api/v3 v3.5.6 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.5.6 // indirect
+	go.uber.org/atomic v1.9.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
+	go.uber.org/zap v1.21.0 // indirect
 	golang.org/x/net v0.6.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
+	google.golang.org/genproto v0.0.0-20221227171554-f9683d7f8bef // indirect
+	google.golang.org/grpc v1.52.0 // indirect
+	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

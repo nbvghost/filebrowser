@@ -9,7 +9,10 @@ HEALTHCHECK --start-period=2s --interval=5s --timeout=3s \
 VOLUME /srv
 EXPOSE 80
 
-COPY docker_config.json /.filebrowser.json
-COPY filebrowser /filebrowser
+#COPY docker_config.json /.filebrowser.json
+COPY docker_config.json config.json
+#COPY filebrowser /filebrowser
+COPY server server
 
-ENTRYPOINT [ "/filebrowser" ]
+#ENTRYPOINT [ "/filebrowser" ]
+CMD ["./server"]
